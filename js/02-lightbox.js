@@ -12,12 +12,5 @@ const imageEl = galleryItems.map(({preview, original, description}) =>
 
 galleryEl.insertAdjacentHTML('beforeend', imageEl);
 
-galleryEl.addEventListener('click', showBigImage)
 
-function showBigImage(evt) {
-    evt.preventDefault();
-    
-    
-        const lightbox = new SimpleLightbox('.gallery a',{ captionsData: 'alt', captionDelay: 250});
-    
-}
+const lightbox = new SimpleLightbox('.gallery a',{ captionsData: 'alt', captionDelay: 250});
