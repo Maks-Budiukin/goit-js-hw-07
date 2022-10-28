@@ -17,7 +17,7 @@ galleryEl.addEventListener('click', showBigImage)
 function showBigImage(evt) {
     evt.preventDefault();
     
-    if (evt.target.nodeName === 'IMG') {
+    
         const lightbox = new SimpleLightbox('.gallery a',{ captionsData: 'alt', captionDelay: 250});
-    }
+    
 }

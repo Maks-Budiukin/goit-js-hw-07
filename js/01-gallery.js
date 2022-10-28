@@ -24,14 +24,19 @@ function showBigImage(evt) {
     evt.preventDefault();
     
     if (evt.target.nodeName === 'IMG') {
-        const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}" width="800" height="600">`);
+      const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}" width="800" height="600">`,
+        {
+          onShow: () => document.addEventListener('keydown', onEscPress),
+          onClose: () => { document.removeEventListener('keydown', onEscPress) }
+        });
         
-        instance.show(() => window.addEventListener('keydown', onEscPress));
+      instance.show();
+      
 
         function onEscPress(evt) {
-            if (evt.code === 'Escape') {
-        instance.close(() => window.removeEventListener('keydown', onEscPress));
-            }
+          if (evt.code === 'Escape') {
+            instance.close();
+          } 
         }
     }
 }
